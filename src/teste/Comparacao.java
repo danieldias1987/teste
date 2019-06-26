@@ -1,4 +1,4 @@
-package teste;
+/*package teste;
 
 public class Comparacao {
 	
@@ -19,5 +19,4 @@ public class Comparacao {
 		
 		System.out.println("obj2 instanceof Interface: " + (obj2 instanceof Interface));//filho implementa de interface
 	}
-
-}
+}*/
