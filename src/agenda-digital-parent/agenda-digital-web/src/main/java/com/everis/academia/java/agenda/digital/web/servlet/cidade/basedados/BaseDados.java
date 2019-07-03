@@ -1,4 +1,4 @@
-package com.everis.academia.java.agenda.digital.web.servlet;
+package com.everis.academia.java.agenda.digital.web.servlet.cidade.basedados;
 
 import java.util.ArrayList;
 import java.util.List;

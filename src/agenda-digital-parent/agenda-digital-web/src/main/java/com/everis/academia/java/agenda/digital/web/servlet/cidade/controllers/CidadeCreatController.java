@@ -1,4 +1,4 @@
-package com.everis.academia.java.agenda.digital.web.servlet;
+package com.everis.academia.java.agenda.digital.web.servlet.cidade.controllers;
 
 import java.io.IOException;
 
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.everis.academia.java.agenda.digital.entity.Cidade;
+import com.everis.academia.java.agenda.digital.web.servlet.cidade.basedados.BaseDados;
 
 @WebServlet(name = "cidadecontroller", urlPatterns = "/cidade/controller")
 

@@ -1,4 +1,4 @@
-package com.everis.academia.java.agenda.digital.web.servlet;
+package com.everis.academia.java.agenda.digital.web.servlet.cidade.componentes;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.everis.academia.java.agenda.digital.entity.Cidade;
+import com.everis.academia.java.agenda.digital.web.servlet.cidade.basedados.BaseDados;
 
 @WebServlet(name = "listacidades", urlPatterns = "/lista/cidades")
 
@@ -39,8 +40,11 @@ public class ListaCidades extends HttpServlet {
 					+ "</td></tr>");
 		}
 		out.println("</table>");
+		out.println("</br>");
 		out.println("<a href=\"" + req.getContextPath()
 				+ "/cidade/create\" target=\"self\"><input type=\"submit\" Value=\"Criar Cidade\"></a>");
+		out.println("<a href=\"" + req.getContextPath()
+				+ "/hello\" target=\"self\"><input type=\"submit\" Value=\"Inicio\"></a>");
 		out.println("</body>");
 		out.println("</html>");
 	}

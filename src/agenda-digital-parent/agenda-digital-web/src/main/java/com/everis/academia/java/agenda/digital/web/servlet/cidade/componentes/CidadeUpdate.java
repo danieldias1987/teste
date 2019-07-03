@@ -1,4 +1,4 @@
-package com.everis.academia.java.agenda.digital.web.servlet;
+package com.everis.academia.java.agenda.digital.web.servlet.cidade.componentes;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.everis.academia.java.agenda.digital.entity.Cidade;
+import com.everis.academia.java.agenda.digital.web.servlet.cidade.basedados.BaseDados;
 
 @WebServlet(name = "cidadeupdate", urlPatterns = "/cidade/update")
 
@@ -27,7 +28,8 @@ public class CidadeUpdate extends HttpServlet {
 		// Integer.valueOf(request.getParameter("nome")) --- tranformacao de Interger em
 		// string
 		Integer codigo = Integer.valueOf(request.getParameter("codigo"));
-		// tipoprimitivo, vai a base de dados e retorna o index do prieiro elemmento do
+		// int e um tipo primitivo, vai a base de dados e retorna o index do primeiro
+		// elemmento do
 		// tipo cidade e possui um determinado codigo
 		int indexOf = BaseDados.cidades.indexOf(new Cidade(codigo));
 

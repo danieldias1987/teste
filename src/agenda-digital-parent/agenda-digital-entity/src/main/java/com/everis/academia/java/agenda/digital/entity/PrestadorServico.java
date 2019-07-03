@@ -2,7 +2,7 @@ package com.everis.academia.java.agenda.digital.entity;
 
 import java.util.Set;
 
-import com.everis.academia.java.agenda.digital.enu.TipoLogradouro;
+import com.everis.academia.java.agenda.digital.enums.TipoLogradouro;
 
 public class PrestadorServico {
 

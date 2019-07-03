@@ -1,4 +1,4 @@
-package com.everis.academia.java.agenda.digital.web.servlet;
+package com.everis.academia.java.agenda.digital.web.servlet.cidade.componentes;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -33,6 +33,8 @@ public class CidadeCreate extends HttpServlet {
 		out.println("</td></tr>");
 		out.println("</table>");
 		out.println("</form>");
+		out.println("<a href=\"" + request.getContextPath()
+				+ "/hello\" target=\"self\"><input type=\"submit\" Value=\"Inicio\"></a>");
 		out.println("</body>");
 		out.println("</html>");
 

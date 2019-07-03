@@ -1,4 +1,4 @@
-package com.everis.academia.java.agenda.digital.web.servlet;
+package com.everis.academia.java.agenda.digital.web.servlet.cidade.componentes;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,6 +25,7 @@ public class Hello extends HttpServlet {
 		out.println("</br>");
 		out.println("</br>");
 		out.println("<a href=\"cidade/create\" target=\"self\"><input type=\"submit\" Value=\"Criar Cidade\"></a>");
+		out.println("<a href=\"lista/cidades\" target=\"self\"><input type=\"submit\" Value=\"Lista de Cidades\"></a>");
 		out.println("</body>");
 		out.println("</html>");
 
