@@ -8,8 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
-import com.everis.academia.java.agenda.digital.web.servlet.cidade.basedados.BaseDados;
 
 @WebServlet(name = "cidadeupdate", urlPatterns = "/cidade/update")
 
@@ -20,6 +21,8 @@ public class CidadeUpdate extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private ICidadeBusiness cidadebusiness = new CidadeBusiness();
+
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -28,12 +31,8 @@ public class CidadeUpdate extends HttpServlet {
 		// Integer.valueOf(request.getParameter("nome")) --- tranformacao de Interger em
 		// string
 		Integer codigo = Integer.valueOf(request.getParameter("codigo"));
-		// int e um tipo primitivo, vai a base de dados e retorna o index do primeiro
-		// elemmento do
-		// tipo cidade e possui um determinado codigo
-		int indexOf = BaseDados.cidades.indexOf(new Cidade(codigo));
 
-		Cidade cidade = BaseDados.cidades.get(indexOf);
+		Cidade cidade = cidadebusiness.retorna(codigo);
 
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
@@ -41,6 +40,7 @@ public class CidadeUpdate extends HttpServlet {
 		out.println("<form action=\"" + request.getContextPath() + "/cidade/update/controller\" width=\"100%\">");
 		out.println("<table border=\"1\">");
 		out.println("<tr><td colspan=\"2\">Actualiazar</td></tr>");
+
 		// get.codigo obtem o codigo
 		out.println("<tr><td>Codigo:</td><td><input type=\"text\" name=\"codigo\" value=\"" + cidade.getCodigo()
 				+ "\" /></td></tr>");

@@ -8,13 +8,17 @@ import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 public interface ICidadeDAO {
 
-	Boolean create(Cidade cidade);
+	void create(Cidade cidade);
 
 	Collection<Cidade> read();// tipo de dados collection
 
-	Boolean update(Cidade cidade);// se necessario addicionar um componnente nao seria refacturar o codigo; recebe
-									// o objecto cidade
+	void update(Cidade cidade);// se necessario addicionar um componnente nao seria refacturar o codigo; recebe
+								// o objecto cidade
 
-	Boolean delete(Integer codigo);// Boolean delete(Cidade cidade);
+	void delete(Integer codigo);// Boolean delete(Cidade cidade);
+
+	Boolean existeCidadeNome(String nome);
+
+	Cidade retorna(Integer codigo);
 
 }

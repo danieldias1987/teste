@@ -8,12 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
-import com.everis.academia.java.agenda.digital.web.servlet.cidade.basedados.BaseDados;
 
 @WebServlet(name = "cidadecontroller", urlPatterns = "/cidade/controller")
 
 public class CidadeCreatController extends HttpServlet {
+
+	private ICidadeBusiness business = new CidadeBusiness();// tem uma instancia unica
 	/**
 	 * 
 	 */
@@ -24,28 +27,21 @@ public class CidadeCreatController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 
-		String nome = request.getParameter("nome");
+		try {
 
-		// validacao
-		if (nome == null || nome.trim().isEmpty()) {
+			String nome = request.getParameter("nome");
 
-			throw new ServletException("Nome Obrigatório");
+			// criacao do objecto cidade
+			Cidade cidade = new Cidade();
+			cidade.setNome(nome);
+
+			business.create(cidade);
+			response.sendRedirect(request.getContextPath() + "/lista/cidades");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new ServletException(e);
 		}
-		// verificacao
-		for (Cidade cidade : BaseDados.cidades) {
 
-			if (cidade.getNome().trim().equalsIgnoreCase(nome)) {
-				throw new ServletException("Cidade existente");
-			}
-		}
-		// criacao do objecto cidade
-		Cidade cidade = new Cidade();
-		cidade.setCodigo(BaseDados.cidades.size() + 1);
-		cidade.setNome(request.getParameter("nome"));
-
-		// add cidade dentro da base de dados
-		BaseDados.cidades.add(cidade);
-
-		response.sendRedirect(request.getContextPath() + "/lista/cidades");
 	}
 }

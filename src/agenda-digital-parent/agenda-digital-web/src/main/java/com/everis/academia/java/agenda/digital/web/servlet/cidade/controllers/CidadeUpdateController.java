@@ -8,8 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
+import com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
-import com.everis.academia.java.agenda.digital.web.servlet.cidade.basedados.BaseDados;
 
 @WebServlet(name = "cidadeupdatecontroller", urlPatterns = "/cidade/update/controller")
 
@@ -27,25 +28,15 @@ public class CidadeUpdateController extends HttpServlet {
 		Integer codigo = Integer.valueOf(req.getParameter("codigo"));
 		String nome = req.getParameter("nome");
 
-		// validacao
-		if (nome == null || nome.trim().isEmpty()) {
-
-			throw new ServletException("Nome Obrigatório");
-		}
-		// verificacao
-		for (Cidade cidade : BaseDados.cidades) {
-
-			if (cidade.getNome().trim().equalsIgnoreCase(nome) && !cidade.getCodigo().equals(codigo)) {
-				throw new ServletException("Cidade existente");
-			}
-		}
-		// novo objecto com os parametros codigo e nome
+		// novo objecto com os parametros codigo e nome Cidade cidade = new
 		Cidade cidade = new Cidade(codigo, nome);
-
-		int indexOf = BaseDados.cidades.indexOf(cidade);
-
-		// obetcao de parametros
-		BaseDados.cidades.set(indexOf, cidade);
+		// mandou a camada de business
+		ICidadeBusiness busi = new CidadeBusiness();
+		try {
+			busi.update(cidade);
+		} catch (Exception e) {
+			throw new ServletException(e);
+		}
 
 		// volta a lista
 		resp.sendRedirect(req.getContextPath() + "/lista/cidades");
