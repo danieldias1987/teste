@@ -46,7 +46,7 @@ public class CidadeBusiness implements ICidadeBusiness {
 		// verificacao
 
 		if (dao.existeCidadeNome(cidade.getNome())) {
-			throw new BusinessException("Cidade existente");
+			throw new BusinessException("Não houver qualquer alteracao, para alterar alguma coisa altere o nome");
 		}
 		dao.update(cidade);
 	}

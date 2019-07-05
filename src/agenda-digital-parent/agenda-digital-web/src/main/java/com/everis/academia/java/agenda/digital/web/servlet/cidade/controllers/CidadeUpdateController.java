@@ -39,7 +39,8 @@ public class CidadeUpdateController extends HttpServlet {
 		}
 
 		// volta a lista
-		resp.sendRedirect(req.getContextPath() + "/lista/cidades");
+		// resp.sendRedirect(req.getContextPath() + "/lista/cidades");
+		resp.sendRedirect(req.getContextPath() + "/jsp/cidade/read.jsp");
 
 	}
 

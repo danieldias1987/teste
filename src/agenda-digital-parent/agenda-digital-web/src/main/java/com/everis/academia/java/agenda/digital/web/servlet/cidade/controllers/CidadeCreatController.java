@@ -36,7 +36,8 @@ public class CidadeCreatController extends HttpServlet {
 			cidade.setNome(nome);
 
 			business.create(cidade);
-			response.sendRedirect(request.getContextPath() + "/lista/cidades");
+			// response.sendRedirect(request.getContextPath() + "/lista/cidades");
+			response.sendRedirect(request.getContextPath() + "/jsp/cidade/read.jsp");
 
 		} catch (Exception e) {
 			e.printStackTrace();

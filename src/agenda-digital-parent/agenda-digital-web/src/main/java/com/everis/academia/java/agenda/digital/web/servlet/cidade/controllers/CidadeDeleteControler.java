@@ -36,7 +36,8 @@ public class CidadeDeleteControler extends HttpServlet {
 		del.delete(codigo);
 
 		// volta a lista
-		resp.sendRedirect(req.getContextPath() + "/lista/cidades");
+		// resp.sendRedirect(req.getContextPath() + "/lista/cidades");
+		resp.sendRedirect(req.getContextPath() + "/jsp/cidade/read.jsp");
 
 	}
 }
