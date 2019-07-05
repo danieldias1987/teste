@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Academia Java 2019</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputLabel for="nome" value="Digite o seu nome:"/>
+		<h:inputText id="nome" value="#{helloJSF.nome}"></h:inputText>
+		<h:commandButton value="Ok" action="#{helloJSF.hello}"></h:commandButton>
+		<h:outputLabel for="nome" value="#{helloJSF.nome}"/>
+	</h:form>
+</h:body>
+</html>

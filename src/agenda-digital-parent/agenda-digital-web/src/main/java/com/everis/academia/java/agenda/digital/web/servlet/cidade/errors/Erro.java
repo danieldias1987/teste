@@ -32,8 +32,9 @@ public class Erro extends HttpServlet {
 		out.println("<h1 style=\"color:red; text-align:center\"> WARNING</h1>");
 		out.println("</br>");
 		out.println(servletException.getLocalizedMessage());
-		out.println("</html>");
 		out.println("</body>");
+		out.println("</html>");
+
 	}
 
 }

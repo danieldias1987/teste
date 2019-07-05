@@ -25,7 +25,6 @@ public class CidadeDeleteControler extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		// recuperacao de parametros
-		@SuppressWarnings("unused")
 		Integer codigo = Integer.valueOf(req.getParameter("codigo"));
 
 //		// obetcao de parametros

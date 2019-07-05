@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta charset="ISO-8859-1"/>
+	<title>Create City</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputLabel for="nome" value="Nome da cidade:" />
+		<h:inputText id="nome" value="#{createCidadeJSF.nome}"></h:inputText>
+		<br>
+		<h:commandButton value="Criar" action="#{createCidadeJSF.create}"></h:commandButton>
+		<h:commandButton value="Reset" action="#{createCidadeJSF.reset}"></h:commandButton>
+	</h:form>
+</h:body>
+</html>

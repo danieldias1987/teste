@@ -34,9 +34,9 @@
 		%>
 	</table>
 	<br>
-	<a href="/jsp/cidade/create.jsp" target="self"><input type="submit"
+	<a href="<%=request.getContextPath()%>/jsp/cidade/create.jsp" target="self"><input type="submit"
 		Value="Criar Cidade"></a>
-	<a href="/jsp/cidade/inicio.jsp" target="self"><input type="submit"
+	<a href="<%=request.getContextPath()%>/jsp/cidade/inicio.jsp" target="self"><input type="submit"
 		Value="Inicio"></a>
 </body>
 </html>

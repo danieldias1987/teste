@@ -31,7 +31,7 @@
 		</table>
 	</form>
 	<br>
-	<a href="/jsp/cidade/inicio.jsp" target="self"><input type="submit"
+	<a href="<%=request.getContextPath()%>/jsp/cidade/inicio.jsp" target="self"><input type="submit"
 		Value="Inicio"></a>
 </body>
 </html>
