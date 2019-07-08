@@ -2,16 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
-	<meta charset="ISO-8859-1"/>
+	<meta charset="ISO-8859-1" />
 	<title>Create City</title>
 </h:head>
 <h:body>
-	<h:form>
+	<h:form prependId="false">
 		<h:outputLabel for="nome" value="Nome da cidade:" />
-		<h:inputText id="nome" value="#{createCidadeJSF.nome}"></h:inputText>
-		<br>
+		<h:inputText id="nome" value="#{createCidadeJSF.cidade.nome}"></h:inputText>
+		<br />
 		<h:commandButton value="Criar" action="#{createCidadeJSF.create}"></h:commandButton>
 		<h:commandButton value="Reset" action="#{createCidadeJSF.reset}"></h:commandButton>
 	</h:form>
+	<h:messages for="nome" showDetail="true" errorStyle="color:red" warnStyle="color:yellow"/>
+	<br />
+	<h:button value="Home" outcome="home"></h:button>
 </h:body>
 </html>

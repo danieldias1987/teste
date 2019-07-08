@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Lista de Cidades</title>
 </head>
 <body>
-
+	<h:form>
+		<h:dataTable value="#{readCidadeJSF.cidades}" var="cidade" border="1"
+			width="100%">
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Codigo"></h:outputLabel>
+				</f:facet>
+				<h:outputText value="#{cidade.codigo}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Nome"></h:outputLabel>
+				</f:facet>
+				<h:outputText value="#{cidade.nome}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Acções"></h:outputLabel>
+				</f:facet>
+				<h:commandButton action="#{updateCidadeJSF.edit(cidade)}"
+					value="Update"></h:commandButton>
+				<h:commandButton action="#{deleteCidadeJSF.delete(cidade)}"
+					value="Delete">
+					<f:setPropertyActionListener value="#{cidade}"
+						target="#{deleteCidadeJSF.cidade}"></f:setPropertyActionListener>
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+		<br />
+		<p:button value="Criar nova Cidade" outcome="create" icon="pi pi-star"
+			style="margin-right:20px"></p:button>
+			
+			
+		<p:dataTable var="cidade" value="#{readCidadeJSF.cidades}" width="100%">
+			<p:column headerText="Codigo">
+				<h:outputText value="#{cidade.codigo}" />
+			</p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{cidade.nome}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
 </body>
 </html>

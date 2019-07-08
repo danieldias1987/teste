@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="ISO-8859-1" />
+<title>Update City</title>
 </head>
 <body>
-
+	<h:form prependId="false">
+		<h1>Update City</h1>
+		<h:outputLabel for="codigo" value="Codigo:"></h:outputLabel>
+		<h:inputText id="codigo" value="#{updateCidadeJSF.cidade.codigo}" onfocus="this.blur();"></h:inputText>
+		<br />
+		<br />
+		<h:outputLabel for="nome" value="Nome da cidade:"></h:outputLabel>
+		<h:inputText id="nome" value="#{updateCidadeJSF.cidade.nome}"></h:inputText>
+		<h:messages for="nome" showDetail="true" errorStyle="color:red" warnStyle="color:yellow"/>
+		<br />
+		<br />
+		<h:commandButton value="Update" action="#{updateCidadeJSF.update}"></h:commandButton><h:button value="Lista de Cidades" outcome="read"></h:button>
+	</h:form>
 </body>
 </html>

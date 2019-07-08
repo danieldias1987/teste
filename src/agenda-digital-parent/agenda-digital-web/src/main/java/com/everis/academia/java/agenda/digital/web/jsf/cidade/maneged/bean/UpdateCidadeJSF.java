@@ -9,11 +9,11 @@ import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
-@ManagedBean(name = "createCidadeJSF")
-public class CreateCidadeJSF {
+@ManagedBean(name = "updateCidadeJSF")
+public class UpdateCidadeJSF {
 
-	private ICidadeBusiness business = new CidadeBusiness();// tem uma instancia unica
-	private Cidade cidade = new Cidade();// private Cidade cidade = new Cidade(); isto para objecto e nao nome
+	ICidadeBusiness busi = new CidadeBusiness();
+	private Cidade cidade = new Cidade();
 
 	public Cidade getCidade() {
 		return cidade;
@@ -23,34 +23,33 @@ public class CreateCidadeJSF {
 		this.cidade = cidade;
 	}
 
-	public String create() throws BusinessException {// business.create(cidade)
+	public String edit(Cidade cidade) {
+
+		this.cidade = cidade;
+
+		return "update";
+
+	}
+
+	public String update() throws BusinessException {
 
 		try {
-
-			business.create(cidade);
+			busi.update(cidade);
 
 			FacesContext.getCurrentInstance().addMessage("nome", new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					"Cidade criada com sucesso", "Cidade criada com sucesso"));
+					"Cidade actualizada com sucesso", "Cidade actualizada com sucesso"));
 
 			return "read";// retorna para a pagina de read
 
 		} catch (Exception ex) {
 
 			// TODO: handle exception
-
 			FacesContext.getCurrentInstance().addMessage("nome",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", ex.getLocalizedMessage()));
 
 			return null;
+
 		}
-
 	}
 
-	public String reset() {
-
-		this.cidade = new Cidade();// no caso de objecto ficava this.cidade=new Cidade();
-
-		return null;// se nao quiser direcionar para uma nova pagina tem que returnar null
-
-	}
 }
