@@ -7,19 +7,16 @@
 </h:head>
 
 <h:body>
-	<h2>Tipo de Serviço</h2>
+	<h2>Discrição do tipo de serviço</h2>
 	<h:outputText value="Descrição do Tipo de Serviço:" />
 	<h:form>
-		<p:inputTextarea rows="10" cols="50"
-			completeMethod="#{autoCompleteTextArea.sugessions}" queryDelay="100"
-			minQueryLength="1" />
+		<p:inputTextarea id="descricao" autoResize="true" value="#{createTipoServicoJSF.tipoServico.descricao}"/>
 		<br />
-		<p:growl id="growl" life="3000" />
-		<p:commandButton value="Submit" id="createTipoServico" update="growl"
-			actionListener="#{createTipoServicoJSF.create}"
+		<p:commandButton value="Submit" id="createTipoServico" update="@form"
+			action="#{createTipoServicoJSF.create}"
 			styleClass="ui-priority-primary" />
-		<p:commandButton value="Reset" id="resetTipoServico" update="growl"
-			actionListener="#{createTipoServicoJSF.reset}"
+		<p:commandButton value="Reset" id="limparDescricao" update="@form"
+			action="#{createTipoServicoJSF.reset}"
 			styleClass="ui-priority-primary" />
 	</h:form>
 
