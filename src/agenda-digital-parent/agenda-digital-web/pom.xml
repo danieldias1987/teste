@@ -46,6 +46,13 @@
 
 	<build>
 		<finalName>agenda-digital-web</finalName>
+
 	</build>
+	<repositories>
+		<repository>
+			<id>primefaces-repository</id>
+			<url>https://repository.primefaces.org/</url>
+		</repository>
+	</repositories>
 
 </project>
