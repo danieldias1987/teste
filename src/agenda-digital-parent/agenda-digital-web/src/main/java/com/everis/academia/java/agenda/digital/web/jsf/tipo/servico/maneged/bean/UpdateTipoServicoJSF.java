@@ -9,10 +9,10 @@ import com.everis.academia.java.agenda.digital.business.ITipoServicoBusiness;
 import com.everis.academia.java.agenda.digital.business.impl.TipoServicoBusiness;
 import com.everis.academia.java.agenda.digital.entity.TipoServico;
 
-@ManagedBean(name = "createTipoServicoJSF")
-public class CreateTipoServicoJSF {
+@ManagedBean(name = "updateTipoServicoJSF")
+public class UpdateTipoServicoJSF {
 
-	private ITipoServicoBusiness tipoServicobBusiness = new TipoServicoBusiness();
+	ITipoServicoBusiness tipoBusiness = new TipoServicoBusiness();
 	private TipoServico tipoServico = new TipoServico();
 
 	public TipoServico getTipoServico() {
@@ -23,33 +23,33 @@ public class CreateTipoServicoJSF {
 		this.tipoServico = tipoServico;
 	}
 
-	public String create() throws BusinessException {
-		try {
+	public String edit(TipoServico tipoServico) {
 
-			tipoServicobBusiness.create(tipoServico);
+		this.tipoServico = tipoServico;
+
+		return "updateTipoServico";
+
+	}
+
+	public String update() throws BusinessException {
+
+		try {
+			tipoBusiness.update(tipoServico);
 
 			FacesContext.getCurrentInstance().addMessage("descricao",
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Descrição criada com sucesso"));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Tipo de Serviço submitido com sucesso "));
 
-			return "readTipoServico";// retorna para a pagina de read
+			return "read";// retorna para a pagina de read
 
 		} catch (Exception ex) {
 
 			// TODO: handle exception
-
 			FacesContext.getCurrentInstance().addMessage("descricao",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", ex.getLocalizedMessage()));
 
 			return null;
+
 		}
-
-	}
-
-	public String reset() {
-
-		this.tipoServico = new TipoServico();
-		return null;
-
 	}
 
 }

@@ -10,18 +10,29 @@ import com.everis.academia.java.agenda.digital.entity.TipoServico;
 
 public class TipoServicoBusiness implements ITipoServicoBusiness {
 
-	private ITipoServicoDAO tipoServicoDao = new TipoServicoDAOList();
+	private ITipoServicoDAO tipoServicoDAO = new TipoServicoDAOList();
 
 	@Override
-	public void create(TipoServico tipoServico) {
+	public void create(TipoServico tipoServico) throws BusinessException {
 		// TODO Auto-generated method stub
+		if (tipoServico.getDescricao() == null || tipoServico.getDescricao().trim().isEmpty()) {
+
+			throw new BusinessException("Nome Obrigatório");
+		}
+		// verificacao
+
+		if (tipoServicoDAO.existeDescricao(tipoServico.getDescricao())) {
+			throw new BusinessException("Cidade existente");
+		}
+
+		tipoServicoDAO.create(tipoServico);
 
 	}
 
 	@Override
 	public Collection<TipoServico> read() {
 		// TODO Auto-generated method stub
-		return tipoServicoDao.read();
+		return tipoServicoDAO.read();
 	}
 
 	@Override
@@ -30,33 +41,26 @@ public class TipoServicoBusiness implements ITipoServicoBusiness {
 		// validacao
 		if (tipoServico.getDescricao() == null || tipoServico.getDescricao().trim().isEmpty()) {
 
-			throw new BusinessException("Descrição do tipo de Serviço obrigatória");
+			throw new BusinessException("Descrição do Tipo de Serviço Obrigatório");
 		}
 		// verificacao
 
-		if (tipoServicoDao.existeDescricao(tipoServico.getDescricao())) {
+		if (tipoServicoDAO.existeDescricao(tipoServico.getDescricao())) {
 			throw new BusinessException("Não houver qualquer alteracao");
 		}
-		tipoServicoDao.update(tipoServico);
-
+		tipoServicoDAO.update(tipoServico);
 	}
 
 	@Override
-	public void delete(Integer codigo) {
+	public void delete(Short codigo) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public Boolean existeCidadeNome(String descricao) {
+	public TipoServico retorna(Short codigo) {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public TipoServico retorna(Integer codigo) {
-		// TODO Auto-generated method stub
-		return null;
+		return tipoServicoDAO.retorna(codigo);
 	}
 
 }

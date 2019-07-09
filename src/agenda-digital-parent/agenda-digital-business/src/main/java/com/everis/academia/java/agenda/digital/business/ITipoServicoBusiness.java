@@ -6,7 +6,7 @@ import com.everis.academia.java.agenda.digital.entity.TipoServico;
 
 public interface ITipoServicoBusiness {
 
-	void create(TipoServico tipoServico);
+	void create(TipoServico tipoServico) throws BusinessException;
 
 	Collection<TipoServico> read();// tipo de dados collection
 
@@ -15,10 +15,8 @@ public interface ITipoServicoBusiness {
 	// recebe
 	// o objecto cidade
 
-	void delete(Integer codigo);// Boolean delete(Cidade cidade);
+	void delete(Short codigo);// Boolean delete(Cidade cidade);
 
-	Boolean existeCidadeNome(String descricao);
-
-	TipoServico retorna(Integer codigo);
+	TipoServico retorna(Short codigo);
 
 }

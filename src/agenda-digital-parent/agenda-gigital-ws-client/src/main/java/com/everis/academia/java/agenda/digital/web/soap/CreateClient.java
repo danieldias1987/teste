@@ -3,6 +3,8 @@ package com.everis.academia.java.agenda.digital.web.soap;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.xml.ws.Holder;
+
 import com.everis.academia.java.agenda.digital.web.soap.generated.BusinessException_Exception;
 import com.everis.academia.java.agenda.digital.web.soap.generated.Cidade;
 import com.everis.academia.java.agenda.digital.web.soap.generated.CidadeSOAP;
@@ -21,10 +23,10 @@ public class CreateClient {
 			System.out.println(cidade.getNome());
 		}
 
-//		for (Cidade cidade : port.create(cidade)) {
-//			System.out.println(cidade.setNome(cidade));
-//		}
-//
+		Cidade cidade = new Cidade();
+		cidade.setNome("Faro");
+		port.create(new Holder<Cidade>(cidade));
+
 //		for (Cidade cidade : port.update(cidade)) {
 //			System.out.println(cidade.getNome());
 //		}
