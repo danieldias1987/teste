@@ -4,15 +4,21 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.ITipoServicoBusiness;
-import com.everis.academia.java.agenda.digital.business.impl.TipoServicoBusiness;
 import com.everis.academia.java.agenda.digital.entity.TipoServico;
 
+@Component("createTipoServicoJSF")
 @ManagedBean(name = "createTipoServicoJSF")
+@RequestScope
 public class CreateTipoServicoJSF {
 
-	private ITipoServicoBusiness tipoServicobBusiness = new TipoServicoBusiness();
+	@Autowired
+	private ITipoServicoBusiness tipoServicobBusiness;
 	private TipoServico tipoServico = new TipoServico();
 
 	public TipoServico getTipoServico() {
@@ -28,8 +34,8 @@ public class CreateTipoServicoJSF {
 
 			tipoServicobBusiness.create(tipoServico);
 
-			FacesContext.getCurrentInstance().addMessage("descricao",
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Descrição criada com sucesso"));
+			FacesContext.getCurrentInstance().addMessage("descricao", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"Descrição criada com sucesso", "Descrição criada com sucesso"));
 
 			return "read";// retorna para a pagina de read
 
@@ -37,8 +43,8 @@ public class CreateTipoServicoJSF {
 
 			// TODO: handle exception
 
-			FacesContext.getCurrentInstance().addMessage("descricao",
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", ex.getLocalizedMessage()));
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Warning", "Descriçao necessária"));
 
 			return null;
 		}

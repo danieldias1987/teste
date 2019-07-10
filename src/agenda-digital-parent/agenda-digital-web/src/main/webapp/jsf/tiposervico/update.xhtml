@@ -13,6 +13,9 @@
 <h:body>
 	<p:panel header="Actualização de Descrições do Tipo de Servico" style="margin-bottom:10px;">
 		<h:form prependId="false">
+		<p:messages id="messages" showDetail="true" closable="true">
+        <p:autoUpdate />
+    </p:messages>
 			<p:outputLabel for="codigo" value="Codigo:"></p:outputLabel>
 			<br />
 			<p:inputText id="codigo"

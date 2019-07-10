@@ -11,6 +11,9 @@
 		style="margin-bottom:10px;">
 		<h:outputText value="Descrição:" />
 		<h:form>
+			<p:messages id="mensagem" showDetail="true" closable="true">
+        <p:autoUpdate />
+    </p:messages>
 			<p:inputTextarea id="descricao" autoResize="true"
 				value="#{createTipoServicoJSF.tipoServico.descricao}" />
 			<br />
@@ -21,7 +24,6 @@
 				action="#{createTipoServicoJSF.reset}"
 				styleClass="ui-priority-primary" />
 		</h:form>
-		<h:messages for="descricao" showDetail="true" errorStyle="color:red" warnStyle="color:yellow"/>
 	</p:panel>
 </h:body>
 </html>

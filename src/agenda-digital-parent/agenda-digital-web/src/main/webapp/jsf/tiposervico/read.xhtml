@@ -26,12 +26,13 @@
 				<p:column headerText="Acções" colspan="2">
 					<p:commandButton action="#{updateTipoServicoJSF.edit(tipoServico)}"
 						value="Update" id="update"></p:commandButton>
-						<p:commandButton
+					<p:commandButton
 						action="#{deleteTipoServicoJSF.delete(tipoServico)}"
 						value="Delete" update="@form">
 					</p:commandButton>
 				</p:column>
 			</p:dataTable>
+			<p:commandButton value="Nova descrição" action="create"></p:commandButton>
 		</p:panel>
 	</h:form>
 </h:body>

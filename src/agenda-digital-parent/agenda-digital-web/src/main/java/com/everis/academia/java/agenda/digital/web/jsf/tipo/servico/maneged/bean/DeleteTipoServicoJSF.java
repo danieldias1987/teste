@@ -2,15 +2,20 @@ package com.everis.academia.java.agenda.digital.web.jsf.tipo.servico.maneged.bea
 
 import javax.faces.bean.ManagedBean;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
 import com.everis.academia.java.agenda.digital.business.ITipoServicoBusiness;
-import com.everis.academia.java.agenda.digital.business.impl.TipoServicoBusiness;
 import com.everis.academia.java.agenda.digital.entity.TipoServico;
 
 @ManagedBean(name = "deleteTipoServicoJSF")
+@Component("deleteTipoServicoJSF")
+@RequestScope
 public class DeleteTipoServicoJSF {
 
-	private ITipoServicoBusiness delTipoServico = new TipoServicoBusiness();
-
+	@Autowired
+	private ITipoServicoBusiness delTipoServico;
 	private TipoServico tipoServico = new TipoServico();
 
 	public TipoServico getTipoServico() {

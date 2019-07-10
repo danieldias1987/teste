@@ -4,15 +4,20 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
-import com.everis.academia.java.agenda.digital.business.BusinessException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
 import com.everis.academia.java.agenda.digital.business.ITipoServicoBusiness;
-import com.everis.academia.java.agenda.digital.business.impl.TipoServicoBusiness;
 import com.everis.academia.java.agenda.digital.entity.TipoServico;
 
 @ManagedBean(name = "updateTipoServicoJSF")
+@Component("updateTipoServicoJSF")
+@RequestScope
 public class UpdateTipoServicoJSF {
 
-	ITipoServicoBusiness tipoBusiness = new TipoServicoBusiness();
+	@Autowired
+	ITipoServicoBusiness tipoBusiness;
 	private TipoServico tipoServico = new TipoServico();
 
 	public TipoServico getTipoServico() {
@@ -31,21 +36,21 @@ public class UpdateTipoServicoJSF {
 
 	}
 
-	public String update() throws BusinessException {
+	public String update() {
 
 		try {
 			tipoBusiness.update(tipoServico);
 
 			FacesContext.getCurrentInstance().addMessage("descricao",
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Tipo de Serviço submitido com sucesso "));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Info", "Tipo de Serviço submitido com sucesso "));
 
 			return "read";// retorna para a pagina de read
 
 		} catch (Exception ex) {
 
 			// TODO: handle exception
-			FacesContext.getCurrentInstance().addMessage("descricao",
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", ex.getLocalizedMessage()));
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Warning!", "Nada alterado!!!"));
 
 			return null;
 
