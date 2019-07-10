@@ -46,6 +46,9 @@ public class CreateTipoServicoJSF {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Warning", "Descriçao necessária"));
 
+			FacesContext.getCurrentInstance().addMessage("descricao",
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", ex.getLocalizedMessage()));
+
 			return null;
 		}
 

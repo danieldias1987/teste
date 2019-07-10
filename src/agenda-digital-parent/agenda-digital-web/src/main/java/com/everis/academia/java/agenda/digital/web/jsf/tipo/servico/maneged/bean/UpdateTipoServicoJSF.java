@@ -50,8 +50,8 @@ public class UpdateTipoServicoJSF {
 		} catch (Exception ex) {
 
 			// TODO: handle exception
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "WARNING!", "Nada alterado!!!"));
+//			FacesContext.getCurrentInstance().addMessage(null,
+//					new FacesMessage(FacesMessage.SEVERITY_ERROR, "WARNING!", "Nada alterado!!!"));
 
 			FacesContext.getCurrentInstance().addMessage("descricao",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "WARNING!", ex.getLocalizedMessage()));
