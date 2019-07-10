@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Lista de Descrições do Tipo de Servico</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:panel header="Lista de Descrições do Tipo de Servico"
+			style="text-align:center">
+
+			<p:dataTable id="tbl" var="tipoServico"
+				value="#{readTipoServicoJSF.tiposervico}"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+				paginator="true" rows="5" style="margin-bottom:20px">
+				<p:column headerText="Codigo">
+					<h:outputText value="#{tipoServico.codigo}" />
+				</p:column>
+
+				<p:column headerText="Descrição">
+					<h:outputText value="#{tipoServico.descricao}" />
+				</p:column>
+
+				<p:column headerText="Acções" colspan="2">
+					<p:commandButton action="#{updateTipoServicoJSF.edit(tipoServico)}"
+						value="Update" id="update"></p:commandButton>
+						<p:commandButton
+						action="#{deleteTipoServicoJSF.delete(tipoServico)}"
+						value="Delete" update="@form">
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

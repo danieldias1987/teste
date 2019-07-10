@@ -31,7 +31,7 @@ public class CreateTipoServicoJSF {
 			FacesContext.getCurrentInstance().addMessage("descricao",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Descrição criada com sucesso"));
 
-			return "readTipoServico";// retorna para a pagina de read
+			return "read";// retorna para a pagina de read
 
 		} catch (Exception ex) {
 

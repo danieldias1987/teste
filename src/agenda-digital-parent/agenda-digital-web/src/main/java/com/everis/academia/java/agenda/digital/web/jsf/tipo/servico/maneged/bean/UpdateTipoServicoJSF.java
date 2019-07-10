@@ -27,7 +27,7 @@ public class UpdateTipoServicoJSF {
 
 		this.tipoServico = tipoServico;
 
-		return "updateTipoServico";
+		return "update";
 
 	}
 
@@ -39,7 +39,7 @@ public class UpdateTipoServicoJSF {
 			FacesContext.getCurrentInstance().addMessage("descricao",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Tipo de Serviço submitido com sucesso "));
 
-			return "readTipoServico";// retorna para a pagina de read
+			return "read";// retorna para a pagina de read
 
 		} catch (Exception ex) {
 

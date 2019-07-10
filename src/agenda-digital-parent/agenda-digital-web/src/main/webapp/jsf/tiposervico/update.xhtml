@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Actualização do Tipo de Serviço</title>
+</h:head>
+<style type="text/css">
+.ui-paginator a {
+	margin-right: 5px;
+}
+</style>
+<h:body>
+	<p:panel header="Actualização de Descrições do Tipo de Servico" style="margin-bottom:10px;">
+		<h:form prependId="false">
+			<p:outputLabel for="codigo" value="Codigo:"></p:outputLabel>
+			<br />
+			<p:inputText id="codigo"
+				value="#{updateTipoServicoJSF.tipoServico.codigo}"
+				onfocus="this.blur();"></p:inputText>
+			<br />
+			<br />
+			<p:outputLabel for="descricao" value="Descrição:"></p:outputLabel>
+			<br />
+			<p:inputTextarea id="descricao" autoResize="true"
+				value="#{updateTipoServicoJSF.tipoServico.descricao}" />
+			<h:messages for="descricao" showDetail="true" errorStyle="color:red" warnStyle="color:yellow"/>
+			<br />
+			<br />
+			<p:commandButton value="Update"
+				action="#{updateTipoServicoJSF.update}"></p:commandButton>
+			<p:commandButton value="Cancel" action="read"></p:commandButton>
+		</h:form>
+	</p:panel>
+
+</h:body>
+</html>

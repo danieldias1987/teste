@@ -4,15 +4,23 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
-import com.everis.academia.java.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
+@Component("createCidadeJSF")
 @ManagedBean(name = "createCidadeJSF")
+@RequestScope
 public class CreateCidadeJSF {
 
-	private ICidadeBusiness business = new CidadeBusiness();// tem uma instancia unica
+//	private ICidadeBusiness business = new CidadeBusiness();// tem uma instancia unica
+
+	@Autowired
+	private ICidadeBusiness business;
 	private Cidade cidade = new Cidade();// private Cidade cidade = new Cidade(); isto para objecto e nao nome
 
 	public Cidade getCidade() {

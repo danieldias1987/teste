@@ -25,7 +25,7 @@ public class DeleteTipoServicoJSF {
 
 		delTipoServico.delete(tipoServico.getCodigo());
 
-		return "readTipoServico";
+		return "read";
 
 	}
 }

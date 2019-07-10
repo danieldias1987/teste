@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Criação do Tipo de Serviço</title>
+</h:head>
+
+<h:body>
+	<p:panel header="Discrição do tipo de serviço"
+		style="margin-bottom:10px;">
+		<h:outputText value="Descrição:" />
+		<h:form>
+			<p:inputTextarea id="descricao" autoResize="true"
+				value="#{createTipoServicoJSF.tipoServico.descricao}" />
+			<br />
+			<p:commandButton value="Submit" id="createTipoServico" update="@form"
+				action="#{createTipoServicoJSF.create}"
+				styleClass="ui-priority-primary" />
+			<p:commandButton value="Reset" id="limparDescricao" update="@form"
+				action="#{createTipoServicoJSF.reset}"
+				styleClass="ui-priority-primary" />
+		</h:form>
+		<h:messages for="descricao" showDetail="true" errorStyle="color:red" warnStyle="color:yellow"/>
+	</p:panel>
+</h:body>
+</html>
