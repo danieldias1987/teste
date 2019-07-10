@@ -43,7 +43,7 @@ public class UpdateTipoServicoJSF {
 			tipoBusiness.update(tipoServico);
 
 			FacesContext.getCurrentInstance().addMessage("descricao",
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Tipo de Serviço submitido com sucesso "));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "INFO", "Tipo de Serviço submitido com sucesso "));
 
 			return "read";// retorna para a pagina de read
 
@@ -51,7 +51,10 @@ public class UpdateTipoServicoJSF {
 
 			// TODO: handle exception
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Warning!", "Nada alterado!!!"));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "WARNING!", "Nada alterado!!!"));
+
+			FacesContext.getCurrentInstance().addMessage("descricao",
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "WARNING!", ex.getLocalizedMessage()));
 
 			return null;
 
