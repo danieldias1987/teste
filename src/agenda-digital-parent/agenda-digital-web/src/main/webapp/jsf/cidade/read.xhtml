@@ -38,16 +38,6 @@
 		<br />
 		<p:button value="Criar nova Cidade" outcome="create" icon="pi pi-star"
 			style="margin-right:20px"></p:button>
-			
-			
-		<p:dataTable var="cidade" value="#{readCidadeJSF.cidades}" width="100%">
-			<p:column headerText="Codigo">
-				<h:outputText value="#{cidade.codigo}" />
-			</p:column>
-			<p:column headerText="Nome">
-				<h:outputText value="#{cidade.nome}" />
-			</p:column>
-		</p:dataTable>
 	</h:form>
 </body>
 </html>

@@ -17,12 +17,7 @@ public class TipoServicoBusiness implements ITipoServicoBusiness {
 		// TODO Auto-generated method stub
 		if (tipoServico.getDescricao() == null || tipoServico.getDescricao().trim().isEmpty()) {
 
-			throw new BusinessException("Nome Obrigatório");
-		}
-		// verificacao
-
-		if (tipoServicoDAO.existeDescricao(tipoServico.getDescricao())) {
-			throw new BusinessException("Cidade existente");
+			throw new BusinessException("Descição obrigatória");
 		}
 
 		tipoServicoDAO.create(tipoServico);
@@ -54,6 +49,8 @@ public class TipoServicoBusiness implements ITipoServicoBusiness {
 	@Override
 	public void delete(Short codigo) {
 		// TODO Auto-generated method stub
+
+		tipoServicoDAO.delete(codigo);
 
 	}
 

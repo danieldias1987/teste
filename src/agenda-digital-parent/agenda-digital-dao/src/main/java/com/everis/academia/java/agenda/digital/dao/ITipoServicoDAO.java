@@ -10,11 +10,9 @@ public interface ITipoServicoDAO {
 
 	Collection<TipoServico> read();// tipo de dados collection
 
-	void update(TipoServico tipoServico);// se necessario addicionar um componnente nao seria refacturar o codigo;
-											// recebe
-	// o objecto cidade
+	void update(TipoServico tipoServico);
 
-	void delete(Short codigo);// Boolean delete(Cidade cidade);
+	void delete(Short codigo);
 
 	TipoServico retorna(Short codigo);
 

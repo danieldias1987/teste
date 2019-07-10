@@ -63,8 +63,14 @@ public class TipoServicoDAOList implements ITipoServicoDAO {
 
 	@Override
 	public boolean existeDescricao(String descricao) {
-		// TODO Auto-generated method stub
-		return false;
+
+		for (TipoServico tipoServico : tipoServicos) {
+
+			if (tipoServico.getDescricao().trim().equalsIgnoreCase(descricao)) {
+				return Boolean.TRUE;
+			}
+		}
+		return Boolean.FALSE;
 	}
 
 }

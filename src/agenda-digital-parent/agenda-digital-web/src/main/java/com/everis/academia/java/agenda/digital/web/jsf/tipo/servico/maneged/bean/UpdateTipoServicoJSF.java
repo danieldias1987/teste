@@ -39,7 +39,7 @@ public class UpdateTipoServicoJSF {
 			FacesContext.getCurrentInstance().addMessage("descricao",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Tipo de Serviço submitido com sucesso "));
 
-			return "read";// retorna para a pagina de read
+			return "readTipoServico";// retorna para a pagina de read
 
 		} catch (Exception ex) {
 

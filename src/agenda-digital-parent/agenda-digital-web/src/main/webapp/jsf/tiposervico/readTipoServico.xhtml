@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Lista de Descrições do Tipo de Servico</title>
 </h:head>
 <h:body>
-<h1>Lista de Descrições do Tipo de Servico </h1>
-<p:dataTable var="tipoServico" value="#{readTipoServicoJSF.tiposervico}">
-    <p:column headerText="Codigo">
-        <h:outputText value="#{tipoServico.codigo}" />
-    </p:column>
- 
-    <p:column headerText="Descrição">
-        <h:outputText value="#{tipoServico.descricao}" />
-    </p:column>
- 
-    <p:column headerText="Update">
-<!--         <p:commandLink id="Update" update="growl" action="#{updateTipoServisoJSF.edit(tipoServico)}" style="margin-right:20px"/> -->
-<!--         <h:outputText value="Update" /> -->
-<!--     </p:commandLink> -->
-    </p:column>
- 
-    <p:column headerText="Delete">
-<!--         <p:commandLink id="Delete" update="growl" action="#{updateTipoServisoJSF.delete(tipoServico)}" style="margin-right:20px;"/> -->
-<!--         <h:outputText value="Delete" /> -->
-    </p:column>
-</p:dataTable>
+	<h1>Lista de Descrições do Tipo de Servico</h1>
+	<p:dataTable var="tipoServico"
+		value="#{readTipoServicoJSF.tiposervico}" style="text-align:center">
+		<p:column headerText="Codigo">
+			<h:outputText value="#{tipoServico.codigo}" />
+		</p:column>
+
+		<p:column headerText="Descrição">
+			<h:outputText value="#{tipoServico.descricao}" />
+		</p:column>
+
+		<p:column headerText="Update">
+			<h:commandButton action="#{updateTipoServicoJSF.edit(tipoServico)}"
+				value="Update" id="update"></h:commandButton>
+		</p:column>
+
+		<p:column headerText="Delete">
+			<p:commandButton action="#{deleteTipoServicoJSF.delete(tipoServico)}"
+				value="Delete">
+				<f:setPropertyActionListener value="#{tipoServico}"
+					target="#{deleteTipoServicoJSF.tipoServico}"></f:setPropertyActionListener>
+			</p:commandButton>
+		</p:column>
+	</p:dataTable>
 
 </h:body>
 </html>

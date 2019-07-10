@@ -23,6 +23,19 @@
 			<p:commandButton value="Reset" type="reset" />
 		</h:panelGrid>
 	</h:form>
+	
+		<h:form prependId="false">
+		<p:outputLabel for="codigo" value="Codigo:"></p:outputLabel>
+		<p:inputText id="codigo" value="#{updateTipoServicoJSF.tipoServico.codigo}" onfocus="this.blur();"></p:inputText>
+		<br />
+		<br />
+		<p:outputLabel for="descricao" value="Descrição:"></p:outputLabel>
+		<p:inputTextarea id="descricao" value="#{updateTipoServicoJSF.tipoServico.descricao}"></p:inputText>
+		<h:messages for="descricao" showDetail="true" errorStyle="color:red" warnStyle="color:yellow"/>
+		<br />
+		<br />
+		<h:commandButton value="Update" action="#{updateCidadeJSF.update}"></h:commandButton><h:button value="Lista de Cidades" outcome="read"></h:button>
+	</h:form>
 
 </h:body>
 </html>
