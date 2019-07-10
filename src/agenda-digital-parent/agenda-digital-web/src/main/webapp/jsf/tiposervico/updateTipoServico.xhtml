@@ -10,20 +10,7 @@
         margin-right: 5px;
     }
 </style>
-<h:body>
-	<h:form>
-		<h:panelGrid columns="2" cellpadding="5">
-			<p:outputLabel for="codigo" value="Codigo: " />
-			<p:inputMask id="codigo" value="#{updateTipoServicoJSF.tipoServico.codigo}" onfocus="this.blur();"/>
-			<br/>
-			<p:inputTextarea rows="10" cols="50"
-			completeMethod="#{updateTipoServicoJSF.tipoServico.descricao}" queryDelay="100"
-			minQueryLength="1" id="text"/>
-			<p:commandButton value="Submit" id="Submit" update="@form" action="#{updateTipoServicoJSF.update}" style="margin-right:20px;" styleClass="ui-priority-primary" />
-			<p:commandButton value="Reset" type="reset" />
-		</h:panelGrid>
-	</h:form>
-	
+<h:body>	
 		<h:form prependId="false">
 		<p:outputLabel for="codigo" value="Codigo:"></p:outputLabel>
 		<p:inputText id="codigo" value="#{updateTipoServicoJSF.tipoServico.codigo}" onfocus="this.blur();"></p:inputText>
@@ -31,10 +18,10 @@
 		<br />
 		<p:outputLabel for="descricao" value="Descrição:"></p:outputLabel>
 		<p:inputTextarea id="descricao" value="#{updateTipoServicoJSF.tipoServico.descricao}"></p:inputText>
-		<h:messages for="descricao" showDetail="true" errorStyle="color:red" warnStyle="color:yellow"/>
+<!-- 		<h:messages for="descricao" showDetail="true" errorStyle="color:red" warnStyle="color:yellow"/> -->
 		<br />
 		<br />
-		<h:commandButton value="Update" action="#{updateCidadeJSF.update}"></h:commandButton><h:button value="Lista de Cidades" outcome="read"></h:button>
+		<p:commandButton value="Update" action="#{updateTipoServicoJSF.update}"></p:commandButton>
 	</h:form>
 
 </h:body>
