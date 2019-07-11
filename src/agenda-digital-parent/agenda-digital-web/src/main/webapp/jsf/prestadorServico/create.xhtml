@@ -13,8 +13,12 @@
 			<p:messages id="mensagem" showDetail="true" closable="true">
 				<p:autoUpdate />
 			</p:messages>
-			<h:outputText value="Nome:" />
+			<h:outputText value="Nome: " />
 			<p:inputText value="#{createPrestadorJSF.prestador.nome}"></p:inputText>
+			<br />
+			<br/>
+			<h:outputText value="E-mail: " />
+			<p:inputText value="#{createPrestadorJSF.prestador.email}"></p:inputText>
 			<br />
 			<br/>
 			<p:commandButton value="Submit" id="createPrestador" update="@form"

@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
-@Repository
+//@Repository
 public class CidadeDAOList implements ICidadeDAO {
 	// implementacao minima automatica para poder compilar
 

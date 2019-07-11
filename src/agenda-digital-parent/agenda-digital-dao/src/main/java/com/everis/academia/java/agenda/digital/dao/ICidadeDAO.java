@@ -18,6 +18,7 @@ public interface ICidadeDAO {
 	void delete(Integer codigo);// Boolean delete(Cidade cidade);
 
 	Boolean existeCidadeNome(String nome);
+//	Boolean existeCidadeNome(Cidade cidade);
 
 	Cidade retorna(Integer codigo);
 

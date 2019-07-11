@@ -43,7 +43,10 @@ public class CreatePrestadorServicoJSF {
 
 			// TODO: handle exception
 			FacesContext.getCurrentInstance().addMessage("nome",
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", ex.getLocalizedMessage()));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "WARNING", ex.getLocalizedMessage()));
+
+//			FacesContext.getCurrentInstance().addMessage("email",
+//					new FacesMessage(FacesMessage.SEVERITY_ERROR, "WARNING", ex.getLocalizedMessage()));
 
 			return null;
 		}

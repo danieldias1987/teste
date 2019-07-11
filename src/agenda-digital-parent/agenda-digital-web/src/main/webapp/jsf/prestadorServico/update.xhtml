@@ -19,12 +19,16 @@
 			<p:outputLabel for="nome" value="Nome:"></p:outputLabel>
 			<br />
 			<p:inputText id="nome" value="#{updatePrestadorJSF.prestador.nome}"></p:inputText>
+			<br />
+			<br />
+			<p:outputLabel for="email" value="E-mail"></p:outputLabel>
+			<br />
+			<p:inputText id="email" value="#{updatePrestadorJSF.prestador.email}"></p:inputText>
 			<h:messages for="nome" showDetail="true" errorStyle="color:red"
 				warnStyle="color:yellow" />
 			<br />
 			<br />
-			<p:commandButton value="Update"
-				action="#{updatePrestadorJSF.update}"></p:commandButton>
+			<p:commandButton value="Update" action="#{updatePrestadorJSF.update}"></p:commandButton>
 			<p:commandButton value="Cancel" action="read"></p:commandButton>
 		</h:form>
 	</p:panel>

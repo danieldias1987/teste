@@ -22,11 +22,17 @@ public class PrestadorServicoBusiness implements IPrestadorServicoBusiness {
 
 		if (prestador.getNome() == null || prestador.getNome().trim().isEmpty()) {
 
-			throw new BusinessException("Nome do Prestador Obrigatório");
+			throw new BusinessException("Nome do Prestador de Serviço Obrigatório");
 		}
 
 		if (prestadorDAO.existePrestador(prestador.getNome())) {
 			throw new BusinessException("Prestador já existente");
+		}
+
+		// campo email
+		if (prestador.getEmail() == null || prestador.getEmail().trim().isEmpty()) {
+
+			throw new BusinessException("E-mail obrigatorio");
 		}
 
 		prestadorDAO.create(prestador);
@@ -43,6 +49,12 @@ public class PrestadorServicoBusiness implements IPrestadorServicoBusiness {
 		// TODO Auto-generated method stub
 
 		if (prestadorDAO.existePrestador(prestador.getNome())) {
+			throw new BusinessException("Não houver qualquer alteracao");
+		}
+
+		// campo email
+
+		if (prestadorDAO.existePrestador(prestador.getEmail())) {
 			throw new BusinessException("Não houver qualquer alteracao");
 		}
 		prestadorDAO.update(prestador);
