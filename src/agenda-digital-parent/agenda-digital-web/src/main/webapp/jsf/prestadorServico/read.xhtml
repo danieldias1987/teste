@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Lista de Prestadores de Serviço</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:messages id="mensagemPrestador" showDetail="true" closable="true" styleClass="color:blue">
+			<p:autoUpdate />
+		</p:messages>
+		<p:panel header="Lista de Prestadores de Serviço"
+			style="text-align:center">
 
-</body>
+			<p:dataTable id="tbl" var="prestador"
+				value="#{readPrestadorJSF.prestador}"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+				paginator="true" rows="5" style="margin-bottom:20px">
+				<p:column headerText="Codigo">
+					<h:outputText value="#{prestador.codigo}" />
+				</p:column>
+
+				<p:column headerText="Nome">
+					<h:outputText value="#{prestador.nome}" />
+				</p:column>
+
+				<p:column headerText="Acções" colspan="2">
+					<p:commandButton action="#{updatePrestadorJSF.edit(prestador)}"
+						value="Update" id="update"></p:commandButton>
+					<p:commandButton
+						action="#{deletePrestadorJSF.delete(prestador)}"
+						value="Delete" update="@form">
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+			<p:commandButton value="Novo Registro" action="create"></p:commandButton>
+		</p:panel>
+	</h:form>
+</h:body>
 </html>

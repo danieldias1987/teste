@@ -35,14 +35,13 @@ public class CreatePrestadorServicoJSF {
 			prestadorBusiness.create(prestador);
 
 			FacesContext.getCurrentInstance().addMessage("nome",
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "INFO", "Prestador Criado com Sucesso"));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "INFO", "Prestador Criado com Sucesso"));
 
 			return "read";// retorna para a pagina de read
 
 		} catch (Exception ex) {
 
 			// TODO: handle exception
-
 			FacesContext.getCurrentInstance().addMessage("nome",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", ex.getLocalizedMessage()));
 

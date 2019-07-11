@@ -22,7 +22,7 @@ public class CidadeBusiness implements ICidadeBusiness {
 		// validacao
 		if (cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
 
-			throw new BusinessException("Nome Obrigatório");
+			throw new BusinessException("Nome da Cidade Obrigatório");
 		}
 		// verificacao
 
