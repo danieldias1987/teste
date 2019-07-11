@@ -22,6 +22,9 @@
 		<exception-type>javax.servlet.ServletException</exception-type>
 		<location>/jsp/cidade/error.jsp</location>
 	</error-page>
+		<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 </web-app>
 
 
