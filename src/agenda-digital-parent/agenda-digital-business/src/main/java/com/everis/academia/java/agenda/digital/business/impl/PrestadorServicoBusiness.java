@@ -4,6 +4,8 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.IPrestadorServicoBusiness;
@@ -16,6 +18,7 @@ public class PrestadorServicoBusiness implements IPrestadorServicoBusiness {
 	@Autowired
 	private IPrestadorServicoDAO prestadorDAO;
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public void create(PrestadorServico prestador) throws BusinessException {
 		// TODO Auto-generated method stub
@@ -38,12 +41,14 @@ public class PrestadorServicoBusiness implements IPrestadorServicoBusiness {
 		prestadorDAO.create(prestador);
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public Collection<PrestadorServico> read() {
 		// TODO Auto-generated method stub
 		return prestadorDAO.read();
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public void update(PrestadorServico prestador) throws BusinessException {
 		// TODO Auto-generated method stub
@@ -60,6 +65,7 @@ public class PrestadorServicoBusiness implements IPrestadorServicoBusiness {
 		prestadorDAO.update(prestador);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public void delete(Short codigo) {
 		// TODO Auto-generated method stub
@@ -67,6 +73,7 @@ public class PrestadorServicoBusiness implements IPrestadorServicoBusiness {
 
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public PrestadorServico retorna(Short codigo) {
 		// TODO Auto-generated method stub

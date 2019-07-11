@@ -68,6 +68,7 @@ public class TipoServicoBusiness implements ITipoServicoBusiness {
 
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public TipoServico retorna(Short codigo) {
 		// TODO Auto-generated method stub

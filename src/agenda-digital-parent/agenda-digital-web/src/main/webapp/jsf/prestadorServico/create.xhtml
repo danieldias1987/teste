@@ -6,21 +6,30 @@
 	<title>Novo Prestador de Serviço</title>
 </h:head>
 <h:body>
-		<p:panel header="Prestador de Serviço"
-		style="margin-bottom:10px;">
-		
+	<p:panel header="Prestador de Serviço" style="margin-bottom:10px;">
+
 		<h:form prependId="false">
 			<p:messages id="mensagem" showDetail="true" closable="true">
 				<p:autoUpdate />
 			</p:messages>
-			<h:outputText value="Nome: " />
-			<p:inputText value="#{createPrestadorJSF.prestador.nome}"></p:inputText>
+			<h:panelGrid columns="2">
+				<h:outputText value="Nome: " />
+				<p:inputText value="#{createPrestadorJSF.prestador.nome}"></p:inputText>
+				
+				<h:outputText value="E-mail: " />
+				<p:inputText value="#{createPrestadorJSF.prestador.email}"></p:inputText>
+				
+				<h:outputText value="Bairro " />
+				<p:inputText value="#{createPrestadorJSF.prestador.bairro}"></p:inputText>
+				
+				<h:outputText value="Complemento: " />
+				<p:inputText value="#{createPrestadorJSF.prestador.complemento}"></p:inputText>
+				
+				<h:outputText value="CEP " />
+				<p:inputText value="#{createPrestadorJSF.prestador.cep}"></p:inputText>
+			</h:panelGrid>
 			<br />
-			<br/>
-			<h:outputText value="E-mail: " />
-			<p:inputText value="#{createPrestadorJSF.prestador.email}"></p:inputText>
 			<br />
-			<br/>
 			<p:commandButton value="Submit" id="createPrestador" update="@form"
 				action="#{createPrestadorJSF.create}"
 				styleClass="ui-priority-primary" />

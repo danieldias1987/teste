@@ -29,6 +29,18 @@
 				<p:column headerText="E-mail">
 					<h:outputText value="#{prestador.email}" />
 				</p:column>
+				
+				<p:column headerText="Bairro">
+					<h:outputText value="#{prestador.bairro}" />
+				</p:column>
+				
+				<p:column headerText="Complemento">
+					<h:outputText value="#{prestador.complemento}" />
+				</p:column>
+				
+				<p:column headerText="CEP">
+					<h:outputText value="#{prestador.cep}" />
+				</p:column>
 
 				<p:column headerText="Acções" colspan="2">
 					<p:commandButton action="#{updatePrestadorJSF.edit(prestador)}"

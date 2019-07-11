@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import com.everis.academia.java.agenda.digital.dao.IPrestadorServicoDAO;
 import com.everis.academia.java.agenda.digital.entity.PrestadorServico;
 
-@Repository
+//@Repository
 public class PrestadorServicoDAO implements IPrestadorServicoDAO {
 
 	private static List<PrestadorServico> prestadores = new ArrayList<>();

@@ -68,6 +68,7 @@ public class CidadeBusiness implements ICidadeBusiness {
 		dao.delete(codigo);
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public Cidade retorna(Integer codigo) {
 

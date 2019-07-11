@@ -8,26 +8,50 @@
 <h:body>
 	<p:panel header="Actualização do Prestador de Serviço"
 		style="margin-bottom:10px;">
-		<h:form>
-			<p:outputLabel for="codigo" value="Codigo:"></p:outputLabel>
-			<br />
-			<p:inputText id="codigo"
-				value="#{updatePrestadorJSF.prestador.codigo}"
-				onfocus="this.blur();"></p:inputText>
-			<br />
-			<br />
-			<p:outputLabel for="nome" value="Nome:"></p:outputLabel>
-			<br />
-			<p:inputText id="nome" value="#{updatePrestadorJSF.prestador.nome}"></p:inputText>
-			<br />
-			<br />
-			<p:outputLabel for="email" value="E-mail"></p:outputLabel>
-			<br />
-			<p:inputText id="email" value="#{updatePrestadorJSF.prestador.email}"></p:inputText>
-			<h:messages for="nome" showDetail="true" errorStyle="color:red"
-				warnStyle="color:yellow" />
-			<br />
-			<br />
+		<h:form prependId="false">
+
+			<h:panelGrid columns="2">
+				<p:outputLabel for="codigo" value="Codigo:"></p:outputLabel>
+				<br />
+				<p:inputText id="codigo"
+					value="#{updatePrestadorJSF.prestador.codigo}"
+					onfocus="this.blur();"></p:inputText>
+				<br />
+				<br />
+				<p:outputLabel for="nome" value="Nome:"></p:outputLabel>
+				<br />
+				<p:inputText id="nome" value="#{updatePrestadorJSF.prestador.nome}"></p:inputText>
+				<br />
+				<br />
+				<p:outputLabel for="email" value="E-mail"></p:outputLabel>
+				<br />
+				<p:inputText id="email"
+					value="#{updatePrestadorJSF.prestador.email}"></p:inputText>
+				<br />
+				<br />
+				<p:outputLabel for="bairro" value="Bairro"></p:outputLabel>
+				<br />
+				<p:inputText id="bairro"
+					value="#{updatePrestadorJSF.prestador.bairro}"></p:inputText>
+				<br />
+				<br />
+				<p:outputLabel for="complemento" value="Complemento"></p:outputLabel>
+				<br />
+				<p:inputText id="complemento"
+					value="#{updatePrestadorJSF.prestador.complemento}"></p:inputText>
+				<br />
+				<br />
+				<p:outputLabel for="cep" value="CEP"></p:outputLabel>
+				<br />
+				<p:inputText id="cep"
+					value="#{updatePrestadorJSF.prestador.cep}"></p:inputText>
+
+
+				<h:messages for="nome" showDetail="true" errorStyle="color:red"
+					warnStyle="color:yellow" />
+				<br />
+				<br />
+			</h:panelGrid>
 			<p:commandButton value="Update" action="#{updatePrestadorJSF.update}"></p:commandButton>
 			<p:commandButton value="Cancel" action="read"></p:commandButton>
 		</h:form>

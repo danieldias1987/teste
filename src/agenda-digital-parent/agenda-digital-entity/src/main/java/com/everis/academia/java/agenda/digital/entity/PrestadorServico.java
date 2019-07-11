@@ -2,22 +2,61 @@ package com.everis.academia.java.agenda.digital.entity;
 
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import com.everis.academia.java.agenda.digital.enums.TipoLogradouro;
 
+@Entity
+@Table(name = "TB_PRESTADOR", schema = "public")
+@SequenceGenerator(name = "SQ_PRESTADOR", sequenceName = "SQ_PRESTADOR", initialValue = 1, allocationSize = 1)
 public class PrestadorServico {
 
+	@Id
+	@GeneratedValue(generator = "SQ_PRESTADOR", strategy = GenerationType.SEQUENCE)
+	@Column(name = "COD_PRESTADOR")
 	private Short codigo;
+
+	@Column(name = "NAME_PRESTADOR", unique = true, nullable = false)
 	private String nome;
+
+	@Transient
 	private Cidade cidade;
+
+	@Column(name = "Bairro_PRESTADOR", unique = true, nullable = false)
 	private String bairro;
+
+	@Transient
 	private String cep;
+
+	@Transient
 	private TipoLogradouro tipoLogradouro;
+
+	@Transient
 	private String logradouro;
+
+	@Column(name = "COMPLEMENTO_PRESTADOR", unique = true, nullable = false)
 	private String complemento;// andar
+
+	@Transient
 	private String numero;
+
+	@Column(name = "EMAIL_PRESTADOR", unique = true, nullable = false)
 	private String email;
+
+	@Transient
 	private Set<PrestacaoServico> prestacaoServicos;
+
+	@Transient
 	private Set<TipoServico> servicosCredenciados;
+
+	@Transient
 	private Set<Telefone> telefones;
 
 	public PrestadorServico() {
