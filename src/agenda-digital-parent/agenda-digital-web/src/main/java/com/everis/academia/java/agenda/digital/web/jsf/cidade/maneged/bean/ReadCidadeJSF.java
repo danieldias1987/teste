@@ -2,7 +2,6 @@ package com.everis.academia.java.agenda.digital.web.jsf.cidade.maneged.bean;
 
 import java.util.Collection;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +23,8 @@ public class ReadCidadeJSF {
 
 	private Collection<Cidade> cidades = null;// business.read();
 
-	@PostConstruct
-	public void init() {// boa pratica
-		this.cidades = business.read();
-	}
-
 	public Collection<Cidade> getCidades() {
-		return cidades;
+		return business.read();
 	}
 
 	public void setCidades(Collection<Cidade> cidades) {

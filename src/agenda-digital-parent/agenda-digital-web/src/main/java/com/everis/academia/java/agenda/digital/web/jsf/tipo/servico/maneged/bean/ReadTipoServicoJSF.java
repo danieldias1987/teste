@@ -2,7 +2,6 @@ package com.everis.academia.java.agenda.digital.web.jsf.tipo.servico.maneged.bea
 
 import java.util.Collection;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +21,8 @@ public class ReadTipoServicoJSF {
 
 	private Collection<TipoServico> tiposervico = null;// business.read();
 
-	@PostConstruct
-	public void init() {// boa pratica
-		this.tiposervico = tipoServicoBusiness.read();
-	}
-
 	public Collection<TipoServico> getTiposervico() {
-		return tiposervico;
+		return tipoServicoBusiness.read();
 	}
 
 	public void setTiposervico(Collection<TipoServico> tiposervico) {

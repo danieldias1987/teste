@@ -4,6 +4,8 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.ITipoServicoBusiness;
@@ -16,6 +18,7 @@ public class TipoServicoBusiness implements ITipoServicoBusiness {
 	@Autowired
 	private ITipoServicoDAO tipoServicoDAO;
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public void create(TipoServico tipoServico) throws BusinessException {
 		// TODO Auto-generated method stub
@@ -32,12 +35,14 @@ public class TipoServicoBusiness implements ITipoServicoBusiness {
 
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public Collection<TipoServico> read() {
 		// TODO Auto-generated method stub
 		return tipoServicoDAO.read();
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public void update(TipoServico tipoServico) throws BusinessException {
 		// TODO Auto-generated method stub
@@ -54,6 +59,7 @@ public class TipoServicoBusiness implements ITipoServicoBusiness {
 		tipoServicoDAO.update(tipoServico);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public void delete(Short codigo) {
 		// TODO Auto-generated method stub
