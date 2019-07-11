@@ -34,8 +34,8 @@ public class CreateTipoServicoJSF {
 
 			tipoServicobBusiness.create(tipoServico);
 
-			FacesContext.getCurrentInstance().addMessage("descricao", new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					"Descrição criada com sucesso", "Descrição criada com sucesso"));
+			FacesContext.getCurrentInstance().addMessage("descricao",
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "INFO", "Descrição criada com sucesso"));
 
 			return "read";// retorna para a pagina de read
 
@@ -43,8 +43,8 @@ public class CreateTipoServicoJSF {
 
 			// TODO: handle exception
 
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Warning", "Descriçao necessária"));
+//			FacesContext.getCurrentInstance().addMessage(null,
+//					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Warning", "Descriçao necessária"));
 
 			FacesContext.getCurrentInstance().addMessage("descricao",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "", ex.getLocalizedMessage()));

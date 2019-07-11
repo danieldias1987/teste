@@ -6,7 +6,7 @@ import com.everis.academia.java.agenda.digital.enums.TipoLogradouro;
 
 public class PrestadorServico {
 
-	private Integer codigo;
+	private Short codigo;
 	private String nome;
 	private Cidade cidade;
 	private String bairro;
@@ -24,16 +24,16 @@ public class PrestadorServico {
 		super();
 	}
 
-	public PrestadorServico(Integer codigo) {
+	public PrestadorServico(Short codigo) {
 		this();
 		this.codigo = codigo;
 	}
 
-	public Integer getCodigo() {
+	public Short getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(Short codigo) {
 		this.codigo = codigo;
 	}
 

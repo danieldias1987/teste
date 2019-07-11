@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Novo Prestador de Serviço</title>
+</h:head>
+<h:body>
+	<p:panel header="Prestador de Serviço"
+		style="margin-bottom:10px;">
+		<h:form>
+			<p:messages id="mensagem" showDetail="true" closable="true">
+				<p:autoUpdate />
+			</p:messages>
+			<h:outputText value="Nome:" />
+			<p:inputText id="nome" autoResize="true"
+				value="#{createTipoServicoJSF.tipoServico.descricao}" />
+			<br/>
+			<br/>
+			<p:commandButton value="Submit" id="createPrestador" update="@form"
+				action="#{createTipoServicoJSF.create}"
+				styleClass="ui-priority-primary" />
+			<p:commandButton value="Reset" id="limparPrestador" update="@form"
+				action="#{createTipoServicoJSF.reset}"
+				styleClass="ui-priority-primary" />
+		</h:form>
+	</p:panel>
 
-</body>
+</h:body>
 </html>

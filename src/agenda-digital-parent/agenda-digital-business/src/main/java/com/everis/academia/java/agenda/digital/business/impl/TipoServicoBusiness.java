@@ -24,6 +24,10 @@ public class TipoServicoBusiness implements ITipoServicoBusiness {
 			throw new BusinessException("Descição obrigatória");
 		}
 
+		if (tipoServicoDAO.existeDescricao(tipoServico.getDescricao())) {
+			throw new BusinessException("Descrição já existente");
+		}
+
 		tipoServicoDAO.create(tipoServico);
 
 	}
