@@ -14,8 +14,11 @@ import org.springframework.web.context.annotation.RequestScope;
 import com.everis.academia.java.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.business.IPrestadorServicoBusiness;
+import com.everis.academia.java.agenda.digital.business.ITipoServicoBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 import com.everis.academia.java.agenda.digital.entity.PrestadorServico;
+import com.everis.academia.java.agenda.digital.entity.TipoServico;
+import com.everis.academia.java.agenda.digital.enums.TipoLogradouro;
 
 @ManagedBean(name = "updatePrestadorJSF")
 @Component("updatePrestadorJSF")
@@ -24,6 +27,10 @@ public class UpdatePrestadorServicoJSF {
 
 	@Autowired
 	IPrestadorServicoBusiness prestadorServicoBusiness;
+	
+	@Autowired
+	private ITipoServicoBusiness tipoServicoBusiness;
+	
 	private PrestadorServico prestador = new PrestadorServico();
 
 	public PrestadorServico getPrestador() {
@@ -72,11 +79,13 @@ public class UpdatePrestadorServicoJSF {
 	ICidadeBusiness cidadeBusiness;
 
 	private Collection<Cidade> cidades = null;
+	private Collection<TipoServico> tipoServico = null;
 
 	@PostConstruct
 	public void init() {
 
 		this.setCidades(cidadeBusiness.read());
+		this.setTipoServico(tipoServicoBusiness.read());
 	}
 
 	public Collection<Cidade> getCidades() {
@@ -86,5 +95,20 @@ public class UpdatePrestadorServicoJSF {
 	public void setCidades(Collection<Cidade> cidades) {
 		this.cidades = cidades;
 	}
+	
+	// update Tipo Logradouro
+	
+		public TipoLogradouro[] getArea() {
+			
+			return TipoLogradouro.values();
+		}
+
+		public Collection<TipoServico> getTipoServico() {
+			return tipoServico;
+		}
+
+		public void setTipoServico(Collection<TipoServico> tipoServico) {
+			this.tipoServico = tipoServico;
+		}
 
 }

@@ -13,8 +13,12 @@ import org.springframework.web.context.annotation.RequestScope;
 
 import com.everis.academia.java.agenda.digital.business.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.business.IPrestadorServicoBusiness;
+import com.everis.academia.java.agenda.digital.business.ITipoServicoBusiness;
+import com.everis.academia.java.agenda.digital.business.impl.TipoServicoBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 import com.everis.academia.java.agenda.digital.entity.PrestadorServico;
+import com.everis.academia.java.agenda.digital.entity.TipoServico;
+import com.everis.academia.java.agenda.digital.enums.TipoLogradouro;
 
 @ManagedBean(name = "createPrestadorJSF")
 @Component("createPrestadorJSF")
@@ -26,6 +30,9 @@ public class CreatePrestadorServicoJSF {
 
 	@Autowired
 	private ICidadeBusiness cidadeBusiness;
+	
+	@Autowired
+	private ITipoServicoBusiness tipoServicoBusiness;
 
 	private PrestadorServico prestador = new PrestadorServico();
 
@@ -53,9 +60,6 @@ public class CreatePrestadorServicoJSF {
 			FacesContext.getCurrentInstance().addMessage("nome",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "WARNING", ex.getLocalizedMessage()));
 
-//			FacesContext.getCurrentInstance().addMessage("email",
-//					new FacesMessage(FacesMessage.SEVERITY_ERROR, "WARNING", ex.getLocalizedMessage()));
-
 			return null;
 		}
 	}
@@ -67,11 +71,13 @@ public class CreatePrestadorServicoJSF {
 
 	// para dropdown cidades
 	private Collection<Cidade> cidades = null;
+	private Collection<TipoServico> tipoServico = null;
 
 	@PostConstruct
 	public void init() {
 
 		this.setCidades(cidadeBusiness.read());
+		this.setTipoServico(tipoServicoBusiness.read());
 	}
 
 	public Collection<Cidade> getCidades() {
@@ -81,5 +87,21 @@ public class CreatePrestadorServicoJSF {
 	public void setCidades(Collection<Cidade> cidades) {
 		this.cidades = cidades;
 	}
+	
+	// enum Tipo Logradouro
+	
+	public TipoLogradouro[] getArea() {
+		
+		return TipoLogradouro.values();
+	}
+	
+	public Collection<TipoServico> getTipoServico() {
+		return tipoServico;
+	}
+
+	public void setTipoServico(Collection<TipoServico> tipoServico) {
+		this.tipoServico = tipoServico;
+	}
 
 }
+

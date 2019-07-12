@@ -33,6 +33,15 @@
 					<f:selectItems value="#{updatePrestadorJSF.cidades}" var="cidade" itemLabel="#{cidade.nome}" />
 				</p:selectOneMenu>
 				<br/>
+				<p:outputLabel for="tipologradouro" value="Tipo Logradouro: "></p:outputLabel>
+				<br/>
+				<p:selectOneMenu id="tipologradouro" value="#{updatePrestadorJSF.prestador.tipoLogradouro}"
+					style="width:125px">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItems value="#{createPrestadorJSF.area}" />
+				</p:selectOneMenu>
+				<br/>
+				<br/>
 				<p:outputLabel for="telefone" value="Telefone: "></p:outputLabel>
 				<br />
 				<p:inputText id="telefone"

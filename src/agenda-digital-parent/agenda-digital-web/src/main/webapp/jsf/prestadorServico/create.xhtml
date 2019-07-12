@@ -23,6 +23,13 @@
 					<f:selectItem itemLabel="Select One" itemValue="" />
 					<f:selectItems value="#{createPrestadorJSF.cidades}" var="cidade" itemLabel="#{cidade.nome}" />
 				</p:selectOneMenu>
+				
+				<p:outputLabel for="enumTipoLogradouro" value="Tipo Logradouro: " />
+				<p:selectOneMenu id="enumTipoLogradouro" value="#{createPrestadorJSF.prestador.tipoLogradouro}"
+					style="width:125px">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItems value="#{createPrestadorJSF.area}"/>
+				</p:selectOneMenu>
 
 				<h:panelGroup>
 					<h:outputText value="Telefone: " />
