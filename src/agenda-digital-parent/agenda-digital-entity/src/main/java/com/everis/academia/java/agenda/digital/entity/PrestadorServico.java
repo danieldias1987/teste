@@ -2,11 +2,17 @@ package com.everis.academia.java.agenda.digital.entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -23,28 +29,29 @@ public class PrestadorServico {
 	@Column(name = "COD_PRESTADOR")
 	private Short codigo;
 
-	@Column(name = "NAME_PRESTADOR", unique = true, nullable = false)
+	@Column(name = "NAME_PRESTADOR", nullable = false)
 	private String nome;
 
-	@Transient
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "COD_CIDADE", nullable = false)
 	private Cidade cidade;
 
-	@Column(name = "Bairro_PRESTADOR", unique = true, nullable = false)
+	@Column(name = "Bairro_PRESTADOR", nullable = false)
 	private String bairro;
 
-	@Transient
+	@Column(name = "CEP_PRESTADOR", nullable = false)
 	private String cep;
 
 	@Transient
 	private TipoLogradouro tipoLogradouro;
 
-	@Transient
+	@Column(name = "LOGRADOURO_PRESTADOR", nullable = false)
 	private String logradouro;
 
-	@Column(name = "COMPLEMENTO_PRESTADOR", unique = true, nullable = false)
+	@Column(name = "COMPLEMENTO_PRESTADOR", nullable = false)
 	private String complemento;// andar
 
-	@Transient
+	@Column(name = "NUM_PRESTADOR")
 	private String numero;
 
 	@Column(name = "EMAIL_PRESTADOR", unique = true, nullable = false)
@@ -54,9 +61,13 @@ public class PrestadorServico {
 	private Set<PrestacaoServico> prestacaoServicos;
 
 	@Transient
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = TipoServico.class)
+	@JoinTable(name = "TB_SERVICOSCREDENCIADOS", joinColumns = {
+			@JoinColumn(name = "COD_PRESTADOR") }, inverseJoinColumns = { @JoinColumn(name = "COD_TIPOSERVICO") })
 	private Set<TipoServico> servicosCredenciados;
 
 	@Transient
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prestadorServico", orphanRemoval = true)
 	private Set<Telefone> telefones;
 
 	public PrestadorServico() {

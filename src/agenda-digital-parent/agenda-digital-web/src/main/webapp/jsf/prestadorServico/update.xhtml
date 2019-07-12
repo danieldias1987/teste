@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title>Actualização Prestador de Serviço</title>
 </h:head>
@@ -23,28 +24,59 @@
 				<p:inputText id="nome" value="#{updatePrestadorJSF.prestador.nome}"></p:inputText>
 				<br />
 				<br />
-				<p:outputLabel for="email" value="E-mail"></p:outputLabel>
+				<p:outputLabel for="cidade" value="Cidade: "></p:outputLabel>
+				<br />
+			
+				<p:selectOneMenu id="cidade" value="#{updatePrestadorJSF.prestador.cidade}"
+					style="width:125px" converter="CidadeConverter">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItems value="#{updatePrestadorJSF.cidades}" var="cidade" itemLabel="#{cidade.nome}" />
+				</p:selectOneMenu>
+				<br/>
+				<p:outputLabel for="telefone" value="Telefone: "></p:outputLabel>
+				<br />
+				<p:inputText id="telefone"
+					value="#{updatePrestadorJSF.prestador.telefones}"></p:inputText>
+				<br />
+				<br />
+				
+				<p:outputLabel for="email" value="E-mail: "></p:outputLabel>
 				<br />
 				<p:inputText id="email"
 					value="#{updatePrestadorJSF.prestador.email}"></p:inputText>
 				<br />
 				<br />
-				<p:outputLabel for="bairro" value="Bairro"></p:outputLabel>
+				
+				<p:outputLabel for="bairro" value="Bairro: "></p:outputLabel>
 				<br />
 				<p:inputText id="bairro"
 					value="#{updatePrestadorJSF.prestador.bairro}"></p:inputText>
 				<br />
 				<br />
-				<p:outputLabel for="complemento" value="Complemento"></p:outputLabel>
+				
+				<p:outputLabel for="numero" value="Numero: "></p:outputLabel>
+				<br />
+				<p:inputText id="numero"
+					value="#{updatePrestadorJSF.prestador.numero}"></p:inputText>
+				<br />
+				<br />
+					
+				<p:outputLabel for="complemento" value="Complemento: "></p:outputLabel>
 				<br />
 				<p:inputText id="complemento"
 					value="#{updatePrestadorJSF.prestador.complemento}"></p:inputText>
 				<br />
 				<br />
-				<p:outputLabel for="cep" value="CEP"></p:outputLabel>
+				
+				<p:outputLabel for="cep" value="CEP: "></p:outputLabel>
 				<br />
-				<p:inputText id="cep"
-					value="#{updatePrestadorJSF.prestador.cep}"></p:inputText>
+				<p:inputText id="cep" value="#{updatePrestadorJSF.prestador.cep}"></p:inputText>
+				<br />
+				<br />
+				
+				<p:outputLabel for="logradouro" value="Logradouro: "></p:outputLabel>
+				<br />
+				<p:inputText id="logradouro" value="#{updatePrestadorJSF.prestador.logradouro}"></p:inputText>
 
 
 				<h:messages for="nome" showDetail="true" errorStyle="color:red"

@@ -26,6 +26,10 @@
 					<h:outputText value="#{prestador.nome}" />
 				</p:column>
 				
+				<p:column headerText="Cidade">
+					<h:outputText value="#{prestador.cidade.nome}" />
+				</p:column>
+				
 				<p:column headerText="E-mail">
 					<h:outputText value="#{prestador.email}" />
 				</p:column>
@@ -34,12 +38,20 @@
 					<h:outputText value="#{prestador.bairro}" />
 				</p:column>
 				
+				<p:column headerText="Numero">
+					<h:outputText value="#{prestador.numero}" />
+				</p:column>
+				
 				<p:column headerText="Complemento">
 					<h:outputText value="#{prestador.complemento}" />
 				</p:column>
 				
 				<p:column headerText="CEP">
 					<h:outputText value="#{prestador.cep}" />
+				</p:column>
+				
+				<p:column headerText="Logradouro">
+					<h:outputText value="#{prestador.logradouro}" />
 				</p:column>
 
 				<p:column headerText="Acções" colspan="2">

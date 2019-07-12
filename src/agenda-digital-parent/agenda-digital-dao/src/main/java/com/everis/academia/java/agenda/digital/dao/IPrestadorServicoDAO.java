@@ -16,6 +16,4 @@ public interface IPrestadorServicoDAO {
 
 	PrestadorServico retorna(Short codigo);
 
-	boolean existePrestador(String nome);
-
 }

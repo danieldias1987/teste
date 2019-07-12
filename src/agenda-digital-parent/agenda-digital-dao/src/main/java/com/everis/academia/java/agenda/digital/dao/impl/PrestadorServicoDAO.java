@@ -71,5 +71,4 @@ public class PrestadorServicoDAO implements IPrestadorServicoDAO {
 		}
 		return Boolean.FALSE;
 	}
-
 }
