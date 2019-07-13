@@ -10,10 +10,10 @@
 	<p:panel header="Discrição do tipo de serviço"
 		style="margin-bottom:10px;">
 		<h:outputText value="Descrição:" />
-		<h:form >
+		<h:form>
 			<p:messages id="mensagem" showDetail="true" closable="true">
-        <p:autoUpdate />
-    </p:messages>
+				<p:autoUpdate />
+			</p:messages>
 			<p:inputTextarea id="descricao" autoResize="true"
 				value="#{createTipoServicoJSF.tipoServico.descricao}" />
 			<br />
@@ -25,5 +25,6 @@
 				styleClass="ui-priority-primary" />
 		</h:form>
 	</p:panel>
+	<p:commandButton value="Home" action="/jsf/cidade/home"></p:commandButton>
 </h:body>
 </html>

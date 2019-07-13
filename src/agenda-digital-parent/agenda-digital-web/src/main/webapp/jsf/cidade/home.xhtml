@@ -7,9 +7,6 @@
 <title>Home Page</title>
 <h:link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
-<h:link rel="stylesheet" href="css/navbar.css" />
-<h:link rel="stylesheet" href="css/footer.css" />
 </h:head>
 <style type="text/css">
 body {
@@ -24,7 +21,7 @@ body {
 			icon="pi pi-star">
 			<f:param name="i" value="0" />
 		</p:menuitem>
-		<p:menuitem value="Create" outcome="create"
+		<p:menuitem value="Criar Cidades" outcome="create"
 			icon="pi pi-search">
 			<f:param name="i" value="1" />
 		</p:menuitem>
@@ -32,7 +29,18 @@ body {
 			icon="pi pi-file">
 			<f:param name="i" value="2" />
 		</p:menuitem>
+		<p:menuitem value="Criar Prestador" outcome="/jsf/prestadorServico/create" icon="pi pi-star">
+			<f:param name="i" value="0" />
+		</p:menuitem>
+		<p:menuitem value="Lista de Prestador" outcome="/jsf/prestadorServico/read" icon="pi pi-star">
+			<f:param name="i" value="0" />
+		</p:menuitem>
+		<p:menuitem value="Criar Tipo Serviço" outcome="/jsf/tiposervico/create" icon="pi pi-star">
+			<f:param name="i" value="0" />
+		</p:menuitem>
+		<p:menuitem value="Lista Tipo Serviço" outcome="/jsf/tiposervico/read" icon="pi pi-star">
+			<f:param name="i" value="0" />
+		</p:menuitem>
 	</p:tabMenu>
-
 </h:body>
 </html>

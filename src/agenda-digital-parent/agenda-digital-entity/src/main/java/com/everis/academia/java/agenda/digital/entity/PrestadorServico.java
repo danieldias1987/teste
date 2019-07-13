@@ -62,10 +62,9 @@ public class PrestadorServico {
 	@Transient
 	private Set<PrestacaoServico> prestacaoServicos;
 
-	@Transient
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = TipoServico.class)
+	@ManyToMany(fetch = FetchType.EAGER, targetEntity = TipoServico.class)
 	@JoinTable(name = "TB_SERVICOSCREDENCIADOS", joinColumns = {
-			@JoinColumn(name = "COD_PRESTADOR") }, inverseJoinColumns = { @JoinColumn(name = "COD_TIPOSERVICO") })
+	@JoinColumn(name = "COD_PRESTADOR") }, inverseJoinColumns = { @JoinColumn(name = "COD_TIPOSERVICO") })
 	private Set<TipoServico> servicosCredenciados;
 
 	@Transient

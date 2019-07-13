@@ -18,18 +18,27 @@
 				<p:inputText value="#{createPrestadorJSF.prestador.nome}"></p:inputText>
 
 				<p:outputLabel for="cidade" value="Cidade:" />
-				<p:selectOneMenu id="cidade" value="#{createPrestadorJSF.prestador.cidade}"
-					style="width:125px" converter="CidadeConverter">
+				<p:selectOneMenu id="cidade"
+					value="#{createPrestadorJSF.prestador.cidade}" style="width:125px"
+					converter="CidadeConverter">
 					<f:selectItem itemLabel="Select One" itemValue="" />
-					<f:selectItems value="#{createPrestadorJSF.cidades}" var="cidade" itemLabel="#{cidade.nome}" />
+					<f:selectItems value="#{createPrestadorJSF.cidades}" var="cidade"
+						itemLabel="#{cidade.nome}" />
 				</p:selectOneMenu>
-				
+
 				<p:outputLabel for="enumTipoLogradouro" value="Tipo Logradouro: " />
-				<p:selectOneMenu id="enumTipoLogradouro" value="#{createPrestadorJSF.prestador.tipoLogradouro}"
+				<p:selectOneMenu id="enumTipoLogradouro"
+					value="#{createPrestadorJSF.prestador.tipoLogradouro}"
 					style="width:125px">
 					<f:selectItem itemLabel="Select One" itemValue="" />
-					<f:selectItems value="#{createPrestadorJSF.area}"/>
+					<f:selectItems value="#{createPrestadorJSF.area}" />
 				</p:selectOneMenu>
+
+				<p:outputLabel for="tipoServico" value="Tipo Serviço: " />
+				<p:selectManyCheckbox id="tipoServico"
+					value="#{createPrestadorJSF.prestador.servicosCredenciados}" converter="TipoServicoConverter">
+					<f:selectItems value="#{createPrestadorJSF.tipoServico}" var="tipoServico" itemLabel="#{tipoServico.descricao}"/>
+				</p:selectManyCheckbox>
 
 				<h:panelGroup>
 					<h:outputText value="Telefone: " />
@@ -47,8 +56,8 @@
 						<h:outputText value="#{prestador.telefones}" />
 					</p:column>
 					<p:column headerText="Acções">
-						
-						
+
+
 					</p:column>
 				</p:dataTable>
 				<br />
@@ -83,5 +92,6 @@
 		</h:form>
 	</p:panel>
 	<p:commandButton value="Lista de Prestadores" action="read"></p:commandButton>
+	<p:commandButton value="Home" action="/jsf/cidade/home"></p:commandButton>
 </h:body>
 </html>
