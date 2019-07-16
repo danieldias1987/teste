@@ -59,16 +59,4 @@ public class PrestadorServicoDAO implements IPrestadorServicoDAO {
 
 		return prestador;
 	}
-
-	@Override
-	public boolean existePrestador(String nome) {
-		// TODO Auto-generated method stub
-		for (PrestadorServico prestador : prestadores) {
-
-			if (prestador.getNome().trim().equalsIgnoreCase(nome)) {
-				return Boolean.TRUE;
-			}
-		}
-		return Boolean.FALSE;
-	}
 }
